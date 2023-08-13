@@ -2,6 +2,6 @@ a = 10
 b = 15
 c = 34
 if a + b >= c:
-    print('no')
+    print("no")
 else:
-    print('math god')
+    print("math god")
