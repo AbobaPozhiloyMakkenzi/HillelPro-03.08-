@@ -1,6 +1,7 @@
 from pathlib import Path
 link2 = Path('rockyou.txt').absolute()
 
+
 def foo(link):
     results = []
     search_topic = (
