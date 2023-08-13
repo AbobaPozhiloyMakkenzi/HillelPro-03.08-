@@ -1,5 +1,6 @@
+from pathlib import Path
 
-link1 = r"C:\Users\naddi\Downloads\rockyou.txt"
+link2 = Path("rockyou.txt").absolute()
 
 
 def foo(link):
@@ -23,4 +24,4 @@ def foo(link):
     return results, len(results)
 
 
-print(foo(link1))
+print(foo(link2))
