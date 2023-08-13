@@ -7,5 +7,6 @@ def foo():
 def git():
     pass
 
+
 def wtf():
     print('wtf')
