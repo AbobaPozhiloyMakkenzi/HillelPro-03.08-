@@ -1,7 +1,4 @@
 Hometask1
 Hometask2
 .idea
-venv
-.pre-commit-config.yaml
-pyproject.toml
-flake8
+Hometask3/rockyou.txt
