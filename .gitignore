@@ -4,4 +4,4 @@ Hometask2
 venv
 .pre-commit-config.yaml
 pyproject.toml
-.flake8
+flake8
