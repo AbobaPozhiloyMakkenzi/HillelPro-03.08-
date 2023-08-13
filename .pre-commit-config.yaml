@@ -8,6 +8,7 @@ repos:
       types: [python]
       pass_filenames: false
 
+
     - id: isort
       name: "Checking imports"
       entry: isort --check-only .
