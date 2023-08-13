@@ -11,8 +11,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: Install dependencies
-        run: pip install flake8 black isort
       - name: Run linter
         run: flake8 .
       - name: Run formatters
