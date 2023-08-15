@@ -20,8 +20,8 @@ class CarComponents:
             "Donetsk": ["AN", "KN"],
             "Kharkiv": ["AX"],
         }
-        location = input("Where are you from")
-        if location.capitalize() in plates_dict.keys():
+        location = input("Where are you from").strip().capitalize()
+        if location in plates_dict.keys():
             res1 = plates_dict.get(f"{location}")
             return random.choice(res1)
         elif location.capitalize() not in plates_dict.keys():
@@ -29,7 +29,7 @@ class CarComponents:
             try:
                 quest = input(
                     f"Seems like you made a mistake, perhaps you meant {probable_meaning[0]}?"
-                )
+                ).strip()
             except Exception as e:
                 print(f"we are sorry, but your locatuon is not available yet!{e}")
             else:
