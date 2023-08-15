@@ -1,6 +1,6 @@
+import difflib
 import random
 import string
-import difflib
 
 used_plates = set()
 
@@ -25,13 +25,15 @@ class CarComponents:
             res1 = plates_dict.get(f"{location}")
             return random.choice(res1)
         elif location.capitalize() not in plates_dict.keys():
-            probable_meaning = difflib.get_close_matches(location,plates_dict.keys())
+            probable_meaning = difflib.get_close_matches(location, plates_dict.keys())
             try:
-                quest = input(f"Seems like you made a mistake, perhaps you meant {probable_meaning[0]}?")
-            except:
-                print(f'we are sorry, but your locatuon is not available yet!')
+                quest = input(
+                    f"Seems like you made a mistake, perhaps you meant {probable_meaning[0]}?"
+                )
+            except Exception as e:
+                print(f"we are sorry, but your locatuon is not available yet!{e}")
             else:
-                if quest == 'yes':
+                if quest == "yes":
                     res1 = plates_dict.get(f"{probable_meaning[0]}")
                     return random.choice(res1)
                 else:
