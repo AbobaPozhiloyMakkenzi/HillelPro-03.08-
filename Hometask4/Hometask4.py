@@ -2,8 +2,6 @@ import difflib
 import random
 import string
 
-used_plates = set()
-
 
 class CarComponents:
     def numbers_for_cars(self):
@@ -45,6 +43,7 @@ class CarComponents:
             yield res
 
 
+used_plates = set()
 Car = CarComponents()
 
 
