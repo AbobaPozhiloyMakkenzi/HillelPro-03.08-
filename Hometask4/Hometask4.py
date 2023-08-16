@@ -13,7 +13,7 @@ class CarComponents:
         plates_dict = {
             "Dnipro": ["AE", "KE"],
             "Kyiv": ["AA", "KA"],
-            "Odessa": ["Vn", "NN"],
+            "Odessa": ["VN", "NN"],
             "Lviv": ["VS", "NS"],
             "Donetsk": ["AN", "KN"],
             "Kharkiv": ["AX"],
