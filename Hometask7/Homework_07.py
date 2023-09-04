@@ -39,10 +39,12 @@ class TimerContext:
                 )
                 try:
                     quest = input(
-                        f"Seems like you made a mistake, perhaps you meant {probable_meaning[0]}?"
+                        f"Seems like you made a mistake, perhaps you meant "
+                        f"{probable_meaning[0]}?"
                     ).strip()
                 except Exception as e:
-                    print(f"we are sorry, but your locatuon is not available yet!{e}")
+                    print(f"we are sorry, but your locatuon "
+                          f"is not available yet!{e}")
                 else:
                     if quest == "yes":
                         res1 = plates_dict.get(f"{probable_meaning[0]}")
