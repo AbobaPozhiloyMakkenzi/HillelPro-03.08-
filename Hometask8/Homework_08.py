@@ -20,7 +20,10 @@ Cur_dict = [
 class CurrentData:
     # @property
     def curr_getter(self, cur):
-        link = f"https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json&valcode={cur}&date=20230101"
+        link = (
+            f"https://bank.gov.ua/NBUStatService/v1/statdirectory/"
+            f"exchange?json&valcode={cur}&date=20230101"
+        )
         try:
             res = requests.request("GET", link)
             print(res.json())
@@ -43,7 +46,10 @@ class Price:
         self.sum_to_grivna = int(self.rate) * int(amount)
 
     def __str__(self):
-        return f"here is the currency you looked for: {self.amount} {self.currency}, {self.rate}"
+        return (
+            f"here is the currency you "
+            f"looked for: {self.amount} {self.currency}, {self.rate}"
+        )
 
     def __add__(self, other):
         if self.currency == other.currency:
@@ -55,14 +61,25 @@ class Price:
                     Hardcode_option
                     """
                     if other.currency == "EUR":
-                        return (self.amount * float(Cur_dict[0]["CNY"]["to_usd"])+(other.amount * float(Cur_dict[0]["EUR"]["to_usd"]))) * float(Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            self.amount * float(Cur_dict[0]["CNY"]["to_usd"])
+                            + (other.amount * float(Cur_dict[0]["EUR"]["to_usd"]))
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                     elif other.currency == "USD":
-                        return (self.amount * float(Cur_dict[0]["CNY"]["to_usd"]) + (other.amount)) * float(Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            self.amount * float(Cur_dict[0]["CNY"]["to_usd"])
+                            + (other.amount)
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                 elif self.currency == "EUR":
                     if other.currency == "CNY":
-                        return ((self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) + (other.amount * float(Cur_dict[0]["CNY"]["to_usd"]))) * float(Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            (self.amount * float(Cur_dict[0]["EUR"]["to_usd"]))
+                            + (other.amount * float(Cur_dict[0]["CNY"]["to_usd"]))
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                     elif other.currency == "USD":
-                        return ((self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) + (other.amount) * float(Cur_dict[0]["USD"]["to_gryvna"]))
+                        return (self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) + (
+                            other.amount
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
 
             else:
                 """Dymanic option"""
@@ -78,24 +95,30 @@ class Price:
                     Hardcode_option
                     """
                     if other.currency == "EUR":
-                        return (self.amount * float(Cur_dict[0]["CNY"]["to_usd"]) - (
-                                    other.amount * float(Cur_dict[0]["EUR"]["to_usd"]))) * float(
-                            Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            self.amount * float(Cur_dict[0]["CNY"]["to_usd"])
+                            - (other.amount * float(Cur_dict[0]["EUR"]["to_usd"]))
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                     elif other.currency == "USD":
-                        return (self.amount * float(Cur_dict[0]["CNY"]["to_usd"]) - (other.amount)) * float(
-                            Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            self.amount * float(Cur_dict[0]["CNY"]["to_usd"])
+                            - (other.amount)
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                 elif self.currency == "EUR":
                     if other.currency == "CNY":
-                        return ((self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) - (
-                                    other.amount * float(Cur_dict[0]["CNY"]["to_usd"]))) * float(
-                            Cur_dict[0]["USD"]["to_gryvna"])
+                        return (
+                            (self.amount * float(Cur_dict[0]["EUR"]["to_usd"]))
+                            - (other.amount * float(Cur_dict[0]["CNY"]["to_usd"]))
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
                     elif other.currency == "USD":
-                        return ((self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) - (other.amount) * float(
-                            Cur_dict[0]["USD"]["to_gryvna"]))
+                        return (self.amount * float(Cur_dict[0]["EUR"]["to_usd"])) - (
+                            other.amount
+                        ) * float(Cur_dict[0]["USD"]["to_gryvna"])
             else:
                 """Dymanic option"""
                 return (
-                    f"{self.currency} to {other.currency} exchange rate is: {(self.rate / other.rate)},"
+                    f"{self.currency} to {other.currency} exchange "
+                    f"rate is: {(self.rate / other.rate)},"
                     f"you will get -> {self.amount * (self.rate / other.rate)} for {self.amount}{self.currency}"
                 )
 
