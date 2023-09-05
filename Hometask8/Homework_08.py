@@ -119,7 +119,9 @@ class Price:
                 return (
                     f"{self.currency} to {other.currency} exchange "
                     f"rate is: {(self.rate / other.rate)},"
-                    f"you will get -> {self.amount * (self.rate / other.rate)} for {self.amount}{self.currency}"
+                    f"you will "
+                    f"get -> {self.amount * (self.rate / other.rate)} for"
+                    f" {self.amount}{self.currency}"
                 )
 
 
